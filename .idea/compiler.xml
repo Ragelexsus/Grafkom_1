@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Grafkom 1" />
+        <module name="untitled" />
+        <module name="Materi 2" />
       </profile>
     </annotationProcessing>
   </component>
