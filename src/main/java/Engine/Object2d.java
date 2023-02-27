@@ -89,6 +89,16 @@ public class Object2d extends ShaderProgram {
         glPointSize(0);
         glDrawArrays(GL_TRIANGLES,0,vertices.size());
     }
+    public void drawline(){
+        drawSetup();
+        glLineWidth(1);
+        glPointSize(0);
+        glDrawArrays(GL_LINE_STRIP,0,vertices.size());
+    }
+    public void addvertices(Vector3f newVector){
+        vertices.add(newVector);
+        setupVAOVBO();
+    }
     public void drawWithVerticesColor(){
         drawSetupWithVerticesColor();
         glLineWidth(10);

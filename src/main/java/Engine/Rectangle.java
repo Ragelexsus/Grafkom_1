@@ -7,9 +7,6 @@ import org.joml.Vector4f;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
-import static org.lwjgl.opengl.GL11.glDrawArrays;
-import static org.lwjgl.opengl.GL11.glLineWidth;
-import static org.lwjgl.opengl.GL11.glPointSize;
 import static org.lwjgl.opengl.GL11C.*;
 import static org.lwjgl.opengl.GL15C.*;
 
