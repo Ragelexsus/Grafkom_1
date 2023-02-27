@@ -6,11 +6,10 @@ import org.joml.Vector4f;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
 
-public class Circle extends Object2d{
+public class Circle_square extends Object2d{
     double x,y,centerpointX,centerpointY,r;
-    public Circle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double centerpointX,double centerpointY,double r) {
+    public Circle_square(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double centerpointX, double centerpointY, double r) {
         super(shaderModuleDataList, vertices, color);
         this.centerpointX=centerpointX;
         this.centerpointY=centerpointY;
@@ -22,7 +21,7 @@ public class Circle extends Object2d{
 
     public void createCircle(){
         vertices.clear();
-        for (double i=0; i<360;i+=0.1f){
+        for (double i=0; i<4;i+=0.1f){
             x=centerpointX+r*Math.cos(Math.toRadians(i));
             y= centerpointY+r*Math.sin(Math.toRadians(i));
             vertices.add(new Vector3f((float) x,(float) y,0.0f));
