@@ -11,6 +11,7 @@ public class MouseInput {
     private Vector2f scroll;
     private boolean inWindow;
     private boolean leftButtonPressed;
+    private boolean leftButtonClick;
     private Vector2f previousPos;
     private boolean rightButtonPressed;
 

@@ -17,7 +17,10 @@ public class Circle_square extends Object2d{
         createCircle();
         setupVAOVBO();
     }
-
+    public boolean isPointInside(double x, double y) {
+        double distance = Math.sqrt(Math.pow(x - centerpointX, 2) + Math.pow(y - centerpointY, 2));
+        return distance <=2* r;
+    }
 
     public void createCircle(){
         vertices.clear();
@@ -29,10 +32,34 @@ public class Circle_square extends Object2d{
 
         }
     }
+    public void update(double cpx, double cpy){
+        this.centerpointX=cpx;
+        this.centerpointY=cpy;
+        createCircle();
+        setupVAOVBO();
+
+    }
+
     public void draw(){
         drawSetup();
         glLineWidth(1);
         glPointSize(0);
         glDrawArrays(GL_POLYGON,0,vertices.size());
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 }
