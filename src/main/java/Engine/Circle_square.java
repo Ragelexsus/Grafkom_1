@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class Circle_square extends Object2d{
+public class Circle_square extends Object {
     double x,y,centerpointX,centerpointY,r;
     public Circle_square(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double centerpointX, double centerpointY, double r) {
         super(shaderModuleDataList, vertices, color);

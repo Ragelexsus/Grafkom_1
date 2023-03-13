@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11C.*;
 import static org.lwjgl.opengl.GL15C.*;
 
 
-public class Rectangle extends Object2d{
+public class Rectangle extends Object {
     List<Integer> index;
     int ibo;
     //index buffer object|| element buffer object

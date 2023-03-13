@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class Circle_triangle extends Object2d{
+public class Circle_triangle extends Object {
     double x,y,centerpointX,centerpointY,r;
     public Circle_triangle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double centerpointX, double centerpointY, double r) {
         super(shaderModuleDataList, vertices, color);

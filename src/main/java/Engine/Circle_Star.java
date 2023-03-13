@@ -2,7 +2,6 @@ package Engine;
 
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.opengl.GL;
 
 import java.util.List;
 import static org.lwjgl.opengl.GL11.GL_LINES;
@@ -10,7 +9,7 @@ import static org.lwjgl.opengl.GL11C.GL_UNSIGNED_INT;
 import static org.lwjgl.opengl.GL11C.glDrawElements;
 import static org.lwjgl.opengl.GL15C.*;
 
-public class Circle_Star extends Object2d{
+public class Circle_Star extends Object {
     double x,y,centerpointX,centerpointY,r;
     int ibo;
     List<Integer> index;
