@@ -25,11 +25,11 @@ public class Sphare extends Circle
 
         this.stackCount = 18;
         this.sectorCount = 36;
-
-//        createSphere();
+//
+createElipsoid();
 //        createHyperboloid1();
 //        createHyperboloid2();
-        ellipticcone();
+//        ellipticcone();
 //        paraboloid();
         setupVAOVBO();
     }
@@ -207,7 +207,21 @@ public class Sphare extends Circle
         }
         vertices = temp;
     }
+    public void createElipsoid() {
+        vertices.clear();
+        ArrayList<Vector3f> temp = new ArrayList<>();
 
+        for(double v = -Math.PI/2; v<= Math.PI/2; v+=Math.PI/60){
+            for(double u = -Math.PI; u<= Math.PI; u+=Math.PI/60){
+                float x = 0.5f * (float)(Math.cos(v) * Math.cos(u));
+                float y = 0.5f * (float)(Math.cos(v) * Math.sin(u));
+                float z = 0.5f * (float)(Math.sin(v));
+                temp.add(new Vector3f(x,y,z));
+            }
+        }
+        vertices = temp;
+
+    }
     @Override
     public void draw()
     {

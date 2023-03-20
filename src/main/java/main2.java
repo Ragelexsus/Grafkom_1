@@ -27,6 +27,8 @@ public class main2 {
     private ArrayList<Object> curve = new ArrayList<>();
     private ArrayList<Object> sphare = new ArrayList<>();
 
+    private ArrayList<Sphare> sphares=new ArrayList<>();
+
     private Circle_square objectduar;
 
     ArrayList<Circle_square> rectangleArray = new ArrayList<>();
@@ -35,18 +37,101 @@ public class main2 {
 
         window.init();
         GL.createCapabilities();
+//       //matahari
         objects.add(new Sphare(Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
+                //shaderFile lokasi menyesuaikan objectnya
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+        ),
                 new ArrayList<>(),
-                new Vector4f(1f,0.0f,0.0f,1.0f),0.1,0.1,0.1,0,0,0,0
+                new Vector4f(0.98f, 0.99f, 0.05f, 1.0f), 0.05, 0.05, 0.05, 0, 0, 0, 0
         ));
+        objects.get(0).translateObject(0.0f, 0.0f, 0.0f);
+        objects.get(0).scaleObject(0.3f, 0.3f, 0.3f);
+
+
+//merkurius
+        objects.add(new Sphare(Arrays.asList(
+                //shaderFile lokasi menyesuaikan objectnya
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(),
+                new Vector4f(0.86f, 0.86f, 0.86f, 0.86f), 0.05, 0.05, 0.05, 0, 0, 0, 0
+        ));
+        objects.get(1).translateObject(-2.5f, 0.0f, 0.0f);
+        objects.get(1).scaleObject(0.1f, 0.1f, 0.1f);
+
+        //venus
+        objects.add(new Sphare(Arrays.asList(
+                //shaderFile lokasi menyesuaikan objectnya
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(),
+                new Vector4f(0.75f, 0.591f, 0.0150f, 0f), 0.05, 0.05, 0.05, 0, 0, 0, 0
+        ));
+        objects.get(2).translateObject(-2.3f, 0.0f, 0.0f);
+        objects.get(2).scaleObject(0.2f, 0.2f, 0.2f);
+
+        //bumi
+        objects.add(new Sphare(Arrays.asList(
+                //shaderFile lokasi menyesuaikan objectnya
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(),
+                new Vector4f(0.177f, 0.252f, 0.930f, 0f), 0.05, 0.05, 0.05, 0, 0, 0, 0
+        ));
+        objects.get(3).translateObject(-3.5f, 0.0f, 0.0f);
+        objects.get(3).scaleObject(0.2f, 0.2f, 0.2f);
+
+        //mars
+        objects.add(new Sphare(Arrays.asList(
+                //shaderFile lokasi menyesuaikan objectnya
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(),
+                new Vector4f(1f, 0f, 0f, 0f), 0.05, 0.05, 0.05, 0, 0, 0, 0
+        ));
+        objects.get(4).translateObject(-7f, 0.0f, 0.0f);
+        objects.get(4).scaleObject(0.13f, 0.13f, 0.13f);
+        //bulan
+        objects.add(new Sphare(Arrays.asList(
+                //shaderFile lokasi menyesuaikan objectnya
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                new ShaderProgram.ShaderModuleData
+                        ("resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+        ),
+                new ArrayList<>(),
+                new Vector4f(0.590f, 0.598f, 0.670f, 0f), 0.05, 0.05, 0.05, 0, 0, 0, 0
+        ));
+        objects.get(5).translateObject(-14f, 4f, 0.0f);
+        objects.get(5).scaleObject(0.05f, 0.05f, 0.05f);
 
 //        // Baru
 //        objectsPointsControl.add(new Object(
@@ -186,8 +271,8 @@ public class main2 {
 //
 //                }
 
-                // Loop Semua Rectangle
-                objectsRectangle.addAll(rectangleArray);
+        // Loop Semua Rectangle
+        objectsRectangle.addAll(rectangleArray);
 
 //                for(RectangleFromCircle j : rectangleArray) {
 //                    objectsRectangle.add(j);
@@ -199,8 +284,62 @@ public class main2 {
 
 
     }
+    public void input(){
+        if(window.isKeyPressed(GLFW_KEY_F)){
+            objects.get(0).rotateObject((float) Math.toRadians(0.9f),0.0f,0.0f,1.0f);
+            objects.get(1).rotateObject((float) Math.toRadians(0.9f),0.0f,0.0f,1.0f);
+            objects.get(2).rotateObject((float) Math.toRadians(0.6f),0.0f,0.0f,1.0f);
+            objects.get(3).rotateObject((float) Math.toRadians(0.4f),0.0f,0.0f,1.0f);
+            objects.get(4).rotateObject((float) Math.toRadians(0.3f),0.0f,0.0f,1.0f);
+            objects.get(5).rotateObject((float) Math.toRadians(0.4f),0.0f,0.0f,1.0f);
+
+        }
+        if(window.isKeyPressed(GLFW_KEY_G)){
+            objects.get(0).rotateObject((float)Math.toRadians(0.5f),0.0f,1.0f,
+                    0.0f);
+
+            Vector3f planetMerk = objects.get(1).Model.transformPosition(new Vector3f(0f,0f,0f));
+            objects.get(1).translateObject(-planetMerk.x,-planetMerk.y,0.0f);
+            objects.get(1).rotateObject((float)Math.toRadians(0.7f),0.0f,0.0f,
+                    1.0f);
+            objects.get(1).translateObject(planetMerk.x,planetMerk.y,0.0f);
+
+            Vector3f planetVenus= objects.get(2).Model.transformPosition(new Vector3f(0f,0f,0f));
+            objects.get(2).translateObject(-planetVenus.x,-planetVenus.y,0.0f);
+            objects.get(2).rotateObject((float)Math.toRadians(0.9f),0.0f,0.0f,
+                    1.0f);
+            objects.get(2).translateObject(planetVenus.x,planetVenus.y,0.0f);
+
+            Vector3f planetBumi=objects.get(3).Model.transformPosition(new Vector3f(0f,0f,0f));
+            objects.get(3).translateObject(-planetBumi.x,-planetBumi.y,0.0f);
+            objects.get(3).rotateObject((float)Math.toRadians(1f),0.0f,0.0f,
+                    1.0f);
+            objects.get(3).translateObject(planetBumi.x,planetBumi.y,0.0f);
+
+            Vector3f planetMars =objects.get(4).Model.transformPosition(new Vector3f(0f,0f,0f));
+            objects.get(4).translateObject(-planetMars.x,-planetMars.y,0.0f);
+            objects.get(4).rotateObject((float)Math.toRadians(0.9f),0.0f,0.0f,
+                    1.0f);
+            objects.get(4).translateObject(planetMars.x,planetMars.y,0.0f);
+
+            Vector3f planetBulan = objects.get(5).Model.transformPosition(new Vector3f(0f,0f,0f));
+            objects.get(5).translateObject(-planetBulan.x,-planetBulan.y,0.0f);
+            objects.get(5).rotateObject((float)Math.toRadians(1f),0.0f,0.0f,
+                    1.0f);
+            objects.get(5).translateObject(planetBulan.x,planetBulan.y,0.0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_H)){
+            Vector3f planetBumi = objects.get(3).Model.transformPosition(new Vector3f(0f,0f,0f));
+            objects.get(5).translateObject(-planetBumi.x,-planetBumi.y,0.0f);
+            objects.get(5).rotateObject((float)Math.toRadians(4f),0.0f,0.0f,1.0f);
+            objects.get(5).translateObject(planetBumi.x,planetBumi.y,0.0f);
+        }
+    }
+
+
 
     public void loop() {
+
         while (window.isOpen()) {
             window.update();
             glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -230,7 +369,9 @@ public class main2 {
             //Poll for window events. The key callback above will only be
             //invoked during this call.
             glfwPollEvents();
+            input();
         }
+
     }
 
     public void run() {
