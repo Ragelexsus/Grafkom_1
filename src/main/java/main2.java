@@ -52,6 +52,7 @@ public class main2 {
         ));
         objects.get(0).translateObject(0.0f, 0.0f, 0.0f);
         objects.get(0).scaleObject(0.3f, 0.3f, 0.3f);
+//        objects.get(0).getChildObjet().get(0).translateObject(0.25f,0.0f,0.0f);
 
 
 //merkurius
@@ -111,6 +112,7 @@ public class main2 {
                 new ShaderProgram.ShaderModuleData
                         ("resources/shaders/scene.frag"
                                 , GL_FRAGMENT_SHADER)
+
         ),
                 new ArrayList<>(),
                 new Vector4f(1f, 0f, 0f, 0f), 0.05, 0.05, 0.05, 0, 0, 0, 0
@@ -373,6 +375,7 @@ public class main2 {
         }
 
     }
+
 
     public void run() {
 

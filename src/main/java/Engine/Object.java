@@ -24,6 +24,20 @@ public class Object extends ShaderProgram {
     public Matrix4f Model;
     List<Object> childObjet;
 
+    public List<Object> getChildObjet() {
+        return childObjet;
+    }
+
+    public void setChildObjet(List<Object> childObjet) {
+        this.childObjet = childObjet;
+    }
+
+    public Vector3f updatecenterpoint()
+    {
+        Vector3f centerTemp=new Vector3f();
+        Model.transformPosition(0.0f,0.0f,0.0f,centerTemp);
+        return centerTemp;
+    }
 
     public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
         super(shaderModuleDataList);
@@ -103,6 +117,9 @@ public class Object extends ShaderProgram {
         glLineWidth(1);
         glPointSize(0);
         glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+        for(Object child:childObjet){
+            child.draw();
+        }
     }
 
     public void drawline() {
